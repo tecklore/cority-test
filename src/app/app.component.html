@@ -1,20 +1,108 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div class="container">
+  <div class="panel">
+    <div class="panel__header">
+      <div class="panel__header--left">
+        <h2>List Name<span class="panel-header-num">{{ newPanelNum }}</span></h2>
+        <p class="p-muted">Total <span class="total-panels">3</span></p>
+      </div>
+      <div class="panel__header--right">
+        <div class="panel__header--button-add" (click)="addPanel()"></div>
+          <div class="panel__header--button-chevron" (click)="toggleItems()"></div>
+      </div>
+    </div>
+
+    <div class="panel-list">
+
+      <div class="panel__body">
+        <div class="panel__body--controls-activated">
+          <div class="panel__body--controls-trash"></div>
+          <div class="panel__body--controls-cloud"></div>
+        </div>
+        <div class="panel__body--border-left">
+          <div class="logo-container">
+            <img class="logo" src="assets/images/logo-1.png">
+          </div>
+          <div class="panel__body--text">
+            <h3>Curabitur rutrum ut</h3>
+            <p>Vivamus quis enim vitae est</p>
+            <p class="elipsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+              ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+              ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+              dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+              deserunt mollit anim id est laborum.</p>
+            <p>
+              <img src="assets/images/calendar-icon.gif" alt="logo one">
+              {{ nd }}
+            </p>
+          </div>
+          <div class="panel__body--controls">
+          </div>
+        </div>
+        <div class="clearfix">&nbsp;</div>
+      </div>
+
+      <div class="panel__body">
+        <div class="panel__body--controls-activated">
+          <div class="panel__body--controls-trash" (click)="deletePanel()"></div>
+          <div class="panel__body--controls-cloud" (click)="closeNav()"></div>
+        </div>
+        <div class="panel__body--border-left new">
+          <div class="logo-container">
+            <img class="logo" src="assets/images/logo-1.png">
+          </div>
+          <div class="panel__body--text">
+            <h3>Curabitur rutrum ut</h3>
+            <p>Vivamus quis enim vitae est</p>
+            <p class="elipsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+              ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+              ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+              dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+              deserunt mollit anim id est laborum.</p>
+            <p>
+              <img src="assets/images/calendar-icon.gif" alt="logo one">
+              {{ nd }}
+            </p>
+          </div>
+          <div class="panel__body--controls" (click)="openNav()">
+          </div>
+        </div>
+        <div class="clearfix">&nbsp;</div>
+      </div>
+
+      <div class="panel__body">
+        <div class="panel__body--controls-activated">
+          <div class="panel__body--controls-trash" (click)="deletePanel()"></div>
+          <div class="panel__body--controls-cloud" (click)="closeNav()"></div>
+        </div>
+        <div class="panel__body--border-left">
+          <div class="logo-container">
+            <img class="logo" src="assets/images/logo-1.png">
+          </div>
+          <div class="panel__body--text">
+            <h3>Curabitur rutrum ut</h3>
+            <p>Vivamus quis enim vitae est</p>
+            <p class="elipsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+              ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+              ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+              dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+              deserunt mollit anim id est laborum.</p>
+            <p>
+              <img src="assets/images/calendar-icon.gif" alt="logo one">
+              {{ nd }}
+            </p>
+          </div>
+          <div class="panel__body--controls" (click)="openNav()">
+          </div>
+        </div>
+        <div class="clearfix">&nbsp;</div>
+      </div>
+    </div>
+
+
+
+    <div class="panel__footer">
+      <a href="#" class="load-more" (click)="addPanel()">Load more</a>
+    </div>
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 
