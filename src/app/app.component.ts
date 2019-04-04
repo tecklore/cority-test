@@ -9,9 +9,10 @@ export class AppComponent implements OnInit {
   d = new Date();
   nd = this.d.toDateString();
   newPanels;
-  newPanelNum = 0;
+  newPanelNum;
+  totalPanels;
+  panelNum;
   collapsePanel;
-  removableItem;
 
   panel = `
         <div class="panel__body--controls-activated">
@@ -43,6 +44,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(){
     this.countNew();
+    this.countAll();
     this.addEventListeners();
   }
   openNav() {
@@ -60,6 +62,12 @@ export class AppComponent implements OnInit {
     this.newPanelNum = this.newPanels.length;
   }
 
+  countAll() {
+    this.totalPanels = document.querySelectorAll('.panel__body');
+    this.panelNum = this.totalPanels.length;
+  }
+
+
   toggleItems() {
     this.collapsePanel = document.querySelector('.panel-list');
     this.collapsePanel.classList.toggle('collapsed');
@@ -69,6 +77,7 @@ export class AppComponent implements OnInit {
     let targetParent = event.target.closest('.panel__body');
     targetParent.remove();
     this.countNew();
+    this.countAll();
   }
   addPanel() {
     let panelToInsert = document.createElement("DIV");
@@ -77,6 +86,7 @@ export class AppComponent implements OnInit {
     panelToInsert.innerHTML = this.panel;
     panelToReceive.appendChild(panelToInsert);
     this.countNew();
+    this.countAll();
     this.addEventListeners();
   }
 
