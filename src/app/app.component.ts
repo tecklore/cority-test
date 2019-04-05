@@ -49,9 +49,7 @@ export class AppComponent implements OnInit {
   }
   openNav() {
     const theTarget = event.target as Element;
-    console.log(theTarget);
     const targetParent = theTarget.closest('.panel__body');
-    console.log(targetParent);
     targetParent.classList.add('active');
   }
 
