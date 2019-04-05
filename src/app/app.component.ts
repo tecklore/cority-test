@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
               ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
               ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
               dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-              deserunt mollit anim id est laborum.</p>
+              deserunt mollit anim id est laboru.</p>
             <p>
               <img src="assets/images/calendar-icon.gif" alt="logo one">
               {{ nd }}
@@ -47,17 +47,17 @@ export class AppComponent implements OnInit {
     this.countAll();
     this.addEventListeners();
   }
-  openNav(e) {
-    let target = e.target || e.srcElement || e.currentTarget;
-    console.log(target);
-    let targetParent = target.closest('.panel__body');
+  openNav() {
+    const theTarget = event.target as Element;
+    console.log(theTarget);
+    const targetParent = theTarget.closest('.panel__body');
     console.log(targetParent);
     targetParent.classList.add('active');
   }
 
-  closeNav(e) {
-    let target = e.target || e.srcElement || e.currentTarget;
-    let targetParent = target.closest('.panel__body');
+  closeNav() {
+    const theTarget = event.target as Element;
+    const targetParent = theTarget.closest('.panel__body');
 
     targetParent.classList.remove('active');
   }
@@ -78,15 +78,16 @@ export class AppComponent implements OnInit {
     this.collapsePanel.classList.toggle('collapsed');
   }
 
-  deletePanel(e) {
-    let targetParent = e.target.closest('.panel__body');
+  deletePanel() {
+    const theTarget = event.target as Element;
+    const targetParent = theTarget.closest('.panel__body');
     targetParent.remove();
     this.countNew();
     this.countAll();
   }
   addPanel() {
-    let panelToInsert = document.createElement("DIV");
-    let panelToReceive = document.querySelector('.panel-list');
+    const panelToInsert = document.createElement("DIV");
+    const panelToReceive = document.querySelector('.panel-list');
     panelToInsert.setAttribute('class', 'panel__body');
     panelToInsert.innerHTML = this.panel;
     panelToReceive.appendChild(panelToInsert);
@@ -100,13 +101,13 @@ export class AppComponent implements OnInit {
     const listenList2 = document.querySelectorAll('.panel__body--controls-trash');
     const listenList3 = document.querySelectorAll('.panel__body--controls-cloud');
     listenList1.forEach(element => {
-      element.addEventListener('click', () => this.openNav(Event));
+      element.addEventListener('click', () => this.openNav());
     });
     listenList2.forEach(element => {
-      element.addEventListener('click', () => this.deletePanel(Event));
+      element.addEventListener('click', () => this.deletePanel());
     });
     listenList3.forEach(element => {
-      element.addEventListener('click', () => this.closeNav(Event));
+      element.addEventListener('click', () => this.closeNav());
     });
   }
 }
