@@ -47,13 +47,18 @@ export class AppComponent implements OnInit {
     this.countAll();
     this.addEventListeners();
   }
-  openNav() {
-    let targetParent = event.target.closest('.panel__body');
+  openNav(e) {
+    let target = e.target || e.srcElement || e.currentTarget;
+    console.log(target);
+    let targetParent = target.closest('.panel__body');
+    console.log(targetParent);
     targetParent.classList.add('active');
   }
 
-  closeNav() {
-    let targetParent = event.target.closest('.panel__body');
+  closeNav(e) {
+    let target = e.target || e.srcElement || e.currentTarget;
+    let targetParent = target.closest('.panel__body');
+
     targetParent.classList.remove('active');
   }
 
@@ -73,8 +78,8 @@ export class AppComponent implements OnInit {
     this.collapsePanel.classList.toggle('collapsed');
   }
 
-  deletePanel() {
-    let targetParent = event.target.closest('.panel__body');
+  deletePanel(e) {
+    let targetParent = e.target.closest('.panel__body');
     targetParent.remove();
     this.countNew();
     this.countAll();
@@ -95,13 +100,13 @@ export class AppComponent implements OnInit {
     const listenList2 = document.querySelectorAll('.panel__body--controls-trash');
     const listenList3 = document.querySelectorAll('.panel__body--controls-cloud');
     listenList1.forEach(element => {
-      element.addEventListener('click', () => this.openNav());
+      element.addEventListener('click', () => this.openNav(Event));
     });
     listenList2.forEach(element => {
-      element.addEventListener('click', () => this.deletePanel());
+      element.addEventListener('click', () => this.deletePanel(Event));
     });
     listenList3.forEach(element => {
-      element.addEventListener('click', () => this.closeNav());
+      element.addEventListener('click', () => this.closeNav(Event));
     });
   }
 }
