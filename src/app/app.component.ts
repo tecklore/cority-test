@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   panelNum;
   collapsePanel;
 
-  panel = `
+  panelTop = `
         <div class="panel__body--controls-activated">
           <div class="panel__body--controls-trash" onClick="deletePanel()"></div>
           <div class="panel__body--controls-cloud" onClick="closeNav()"></div>
@@ -32,15 +32,15 @@ export class AppComponent implements OnInit {
               dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
               deserunt mollit anim id est laboru.</p>
             <p>
-              <img src="assets/images/calendar-icon.gif" alt="logo one">
-              {{ nd }}
-            </p>
+              <img src="assets/images/calendar-icon.gif" alt="logo one">`;
+
+  panelBottom =          `</p>
           </div>
           <div class="panel__body--controls" onClick="openNav()">
           </div>
         </div>
         <div class="clearfix">&nbsp;</div>
-      `
+      `;
 
   ngOnInit(){
     this.countNew();
@@ -89,7 +89,7 @@ export class AppComponent implements OnInit {
     const panelToInsert = document.createElement("DIV");
     const panelToReceive = document.querySelector('.panel-list');
     panelToInsert.setAttribute('class', 'panel__body');
-    panelToInsert.innerHTML = this.panel;
+    panelToInsert.innerHTML = this.panelTop + this.nd + this.panelBottom;
     panelToReceive.appendChild(panelToInsert);
     this.countNew();
     this.countAll();
